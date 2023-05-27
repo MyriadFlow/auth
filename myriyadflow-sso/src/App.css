@@ -1,0 +1,54 @@
+.social-icon-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.row{
+  text-align: center;
+}
+.divider{
+  width: 50%;
+  margin-top: 18px;
+}
+.email-input{
+  border-radius: 22px;
+    padding: 10px;
+    width: 25%;
+    margin-top: 20px;
+    border: 2px solid blue;
+
+}
+.continue-button{
+  border-radius: 22px;
+    width: 26%;
+    padding: 10px;
+    margin-top: 20px;
+    background: #5347E7;
+    color: white;
+    border: none;
+
+}
+.forgot{
+  margin-top: 30px;
+}
+.header{
+  background: #282A32;
+    border: 1px solid #282A32;
+    color: white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.dark{
+  width: 45px;
+  height: 45px;
+  padding: 5px;
+}
+.logo{
+  font-size: 20px;
+}
