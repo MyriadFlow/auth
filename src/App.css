@@ -52,3 +52,77 @@
 .logo{
   font-size: 20px;
 }
+.reset-password-wrapper{
+  text-align: center;
+  margin-top: 120px;
+}
+.reset-pass-text{
+  font-weight: bold;
+  font-size: 20px;
+}
+.enter-your-email-text{
+  margin-top: 30px;
+
+}
+.reset-email-input{
+  border: 2px solid #5347E7;
+    border-radius: 30px;
+    padding: 10px;
+    width: 300px;
+    margin-top: 70px;
+}
+.send-link{
+  background: #5347E7;
+    box-shadow: 3px 3px 3px rgba(83, 71, 231, 0.5);
+    border-radius: 30px;
+    padding: 10px;
+    width: 316px;
+    margin-top: 25px;
+    color: white;
+    border: none;
+}
+.or{
+  margin-top: 15px;
+}
+.back-to{
+  margin-top: 30px;
+    font-size: 15px;
+}
+.conferm-button-wrapper{
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+  margin-top: 50px;
+}
+.conferm-warpper{
+  background: #5347E7;
+    padding: 10px;
+    width: 90%;
+    margin-left: 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.reset{
+  padding: 10px 10px 10px 60px;
+    margin-top: 75px;
+    font-weight: bold;
+    font-size: 20px;
+}
+.previous{
+  color: white;
+  margin-top: 25px;
+}
+.conferm-input{
+  padding: 10px;
+  width: 98%;
+  margin-top: 10px;
+
+}
+.back-button{
+  width: 100px;
+  background: blue;
+  border: 1px solid white;
+  color: white;
+  padding: 2px;
+  font-size: 12px;
+}
