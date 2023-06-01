@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import { supabase } from "../utils/supabaseClient";
+import { Link } from "react-router-dom";
 
 const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleLogin = async (email) => {
+  const handleLogin = async () => {
     try {
       setLoading(true);
+      if(!password){
+        alert("please enter yout password")
+      }
       const { error } = await supabase.auth.signInWithOtp({ email });
       if (error) throw error;
       alert("Check your email for the login link!");
@@ -106,8 +111,10 @@ const SignIn = () => {
               ></img>
             </div>
           </div>
+
           <hr className="divider"></hr>
           <div className="mt-5">EMAIL</div>
+
           <div>
             <input
               className="email-input"
@@ -117,11 +124,20 @@ const SignIn = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
+          <div>
+            <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+              className="pass-input"
+              placeholder="password"
+            ></input>
+          </div>
           <div className="mt-5">
             <button
               onClick={(e) => {
                 e.preventDefault();
-                handleLogin(email);
+                handleLogin();
               }}
               className="continue-button"
               disabled={loading}
@@ -131,10 +147,7 @@ const SignIn = () => {
           </div>
 
           <div className="forgot">
-            Forgot password ?
-            <a href="" className="active">
-              Reset now
-            </a>{" "}
+            Forgot password ?<Link to="/resetpasslink">Reset now</Link>
           </div>
         </div>
       </div>

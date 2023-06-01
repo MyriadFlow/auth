@@ -126,3 +126,60 @@
   padding: 2px;
   font-size: 12px;
 }
+.signup-wrapper{
+  text-align: center;
+}
+.sign-up{
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 30px;
+}
+.username{
+  border: 2px solid #5347E7;
+  border-radius: 30px;
+  padding: 10px;
+  width: 300px;
+  margin-top: 10px;
+
+}
+.user-label{
+  margin-top: 35px;
+}
+.pass-label{
+  margin-top: 20px;
+}
+.check-wrapper{
+  display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 12px;
+
+}
+.create-account{
+  background: #5347E7;
+    box-shadow: 3px 3px 3px rgba(83, 71, 231, 0.5);
+    border-radius: 30px;
+    width: 300px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 25px;
+    padding: 10px;
+    color: white;
+
+}
+.auth-design{
+  width: 300px;
+  margin: 0 auto;
+}
+.pass-input{
+  border-radius: 22px;
+  padding: 10px;
+  width: 25%;
+  margin-top: 20px;
+}
+.red{
+  color: red;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 export default function ResetPasswordLink() {
   return (
     <div>
@@ -26,7 +27,10 @@ export default function ResetPasswordLink() {
         </div>
         <div className="or">Or</div>
         <div className="back-to">
-          Back to <a href="/signin">Sign In</a>
+          Back to 
+          <Link  to="/signup">
+              Sign In
+            </Link>{" "}
         </div>
       </div>
     </div>
