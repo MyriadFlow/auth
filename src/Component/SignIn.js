@@ -7,22 +7,12 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
-    try {
-      setLoading(true);
-      if(!password){
-        alert("please enter yout password")
-      }
-      const { error } = await supabase.auth.signInWithOtp({ email });
-      if (error) throw error;
-      alert("Check your email for the login link!");
-    } catch (error) {
-      alert(error.error_description || error.message);
-    } finally {
-      setLoading(false);
-    }
+  const signup = async () => {
+    const { data, error } = await supabase.auth.signUp({ email, password });
   };
-
+  const login = async () => {
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+  };
   async function signInWithGoogle() {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
@@ -113,8 +103,8 @@ const SignIn = () => {
           </div>
 
           <hr className="divider"></hr>
-          <div className="mt-5">EMAIL</div>
 
+          <div className="mt-5">EMAIL</div>
           <div>
             <input
               className="email-input"
@@ -135,19 +125,28 @@ const SignIn = () => {
           </div>
           <div className="mt-5">
             <button
-              onClick={(e) => {
-                e.preventDefault();
-                handleLogin();
-              }}
               className="continue-button"
               disabled={loading}
+              onClick={signup}
             >
               <span>{loading ? "Loading" : "Continue with Email"}</span>
+            </button>
+          </div>
+          <div className="mt-5">
+            <button
+              className="continue-button"
+              disabled={loading}
+              onClick={login}
+            >
+              <span>{loading ? "Loading" : "continue with login"}</span>
             </button>
           </div>
 
           <div className="forgot">
             Forgot password ?<Link to="/resetpasslink">Reset now</Link>
+          </div>
+          <div className="forgot">
+            You dont have an account ?<Link to="/signup">Sign Up</Link>
           </div>
         </div>
       </div>

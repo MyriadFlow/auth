@@ -2,7 +2,7 @@
   "name": "myriyadflow-sso",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://MyriadFlow.github.io/auth",
+  "homepage": "https://MyriadFlow.github.io",
   "dependencies": {
     "@supabase/auth-ui-react": "^0.4.2",
     "@supabase/auth-ui-shared": "^0.1.6",
