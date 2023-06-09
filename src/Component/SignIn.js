@@ -1,17 +1,49 @@
 import React, { useState } from "react";
 import { supabase } from "../utils/supabaseClient";
-import { Link } from "react-router-dom";
-
+import { Link, Router, useNavigate } from "react-router-dom";
+import axios from "axios";
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 const SignIn = () => {
+  const navigate = useNavigate();
+  const [supabaseToken, setsupabaseToken] = useState();
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  async function loginUser(supabaseToken) {
+    const   headers= {
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+       Authorization: `Bearer ${supabaseToken}`,
+    }
+  let tokenData;
+  try {
+    tokenData = await axios.post(`${BASE_URL}/api/v1.0/auth/web2`,headers,  { token:supabaseToken,provider:"supabase",userType:"web 2"})
+    console.log("tokendata",tokenData)
+    if (!tokenData.config.token) {
+      navigate("/resetpasslink")
+      } else {
+        return (
+          <div>
+            <p>Welcome to your Dashboard</p>
+          </div>
+        );
+      }
+  
+  } catch (e) {
+    console.log(e);
+  }
+}
 
   const signup = async () => {
     const { data, error } = await supabase.auth.signUp({ email, password });
   };
   const login = async () => {
     const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    console.log("access token",data.session.access_token)
+    setsupabaseToken(data.session.access_token);
+    if(data.session.access_token){
+      loginUser(data.session.access_token)
+    }
   };
   async function signInWithGoogle() {
     const { data, error } = await supabase.auth.signInWithOAuth({
@@ -141,7 +173,7 @@ const SignIn = () => {
               <span>{loading ? "Loading" : "continue with login"}</span>
             </button>
           </div>
-
+<button onClick={loginUser}>Token login</button>
           <div className="forgot">
             Forgot password ?<Link to="/resetpasslink">Reset now</Link>
           </div>
