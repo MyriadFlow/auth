@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/auth/static/css/main.d4b879f2.css",
-    "main.js": "/auth/static/js/main.54c8f9ee.js",
-    "static/js/787.c205a220.chunk.js": "/auth/static/js/787.c205a220.chunk.js",
-    "index.html": "/auth/index.html",
-    "main.d4b879f2.css.map": "/auth/static/css/main.d4b879f2.css.map",
-    "main.54c8f9ee.js.map": "/auth/static/js/main.54c8f9ee.js.map",
-    "787.c205a220.chunk.js.map": "/auth/static/js/787.c205a220.chunk.js.map"
+    "main.css": "https://myriadFlow.github.io/auth/static/css/main.d4b879f2.css",
+    "main.js": "https://myriadFlow.github.io/auth/static/js/main.a4f41fc3.js",
+    "static/js/787.c205a220.chunk.js": "https://myriadFlow.github.io/auth/static/js/787.c205a220.chunk.js",
+    "index.html": "https://myriadFlow.github.io/auth/index.html",
+    "main.d4b879f2.css.map": "https://myriadFlow.github.io/auth/static/css/main.d4b879f2.css.map",
+    "main.a4f41fc3.js.map": "https://myriadFlow.github.io/auth/static/js/main.a4f41fc3.js.map",
+    "787.c205a220.chunk.js.map": "https://myriadFlow.github.io/auth/static/js/787.c205a220.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d4b879f2.css",
-    "static/js/main.54c8f9ee.js"
+    "static/js/main.a4f41fc3.js"
   ]
 }
