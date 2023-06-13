@@ -72,7 +72,7 @@ const SignIn = () => {
         <div>
           <img className="dark" src="dark.svg"></img>
         </div>
-        <div className="logo">Myriadflow</div>
+        <div className="logo">Myriadflow </div>
       </div>
       <div className="row">
         <div className="col-6 form-widget text-center mt-5">
