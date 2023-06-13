@@ -155,7 +155,7 @@ const SignIn = () => {
               placeholder="password"
             ></input>
           </div>
-          <div className="mt-5">
+          {/* <div className="mt-5">
             <button
               className="continue-button"
               disabled={loading}
@@ -163,7 +163,7 @@ const SignIn = () => {
             >
               <span>{loading ? "Loading" : "Continue with Email"}</span>
             </button>
-          </div>
+          </div> */}
           <div className="mt-5">
             <button
               className="continue-button"
@@ -173,7 +173,6 @@ const SignIn = () => {
               <span>{loading ? "Loading" : "continue with login"}</span>
             </button>
           </div>
-<button onClick={loginUser}>Token login</button>
           <div className="forgot">
             Forgot password ?<Link to="/resetpasslink">Reset now</Link>
           </div>
