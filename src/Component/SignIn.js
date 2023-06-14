@@ -9,6 +9,10 @@ const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  function navigateToAuthSite(){
+    window.location.href = 'https://launchpad.myriadflow.com/launchpad'
+}
   async function loginUser(supabaseToken) {
     const   headers= {
       Accept: "application/json, text/plain, */*",
@@ -17,26 +21,18 @@ const SignIn = () => {
     }
   let tokenData;
   try {
-    tokenData = await axios.post(`${BASE_URL}/api/v1.0/auth/web2`,headers,  { token:supabaseToken,provider:"supabase",userType:"web 2"})
+    tokenData = await axios.post(`${BASE_URL}/api/v1.0/auth/web2`,headers,  { token:supabaseToken,provider:"supabase",type:"web2"})
     console.log("tokendata",tokenData)
     if (!tokenData.config.token) {
-      navigate("/resetpasslink")
-      } else {
-        return (
-          <div>
-            <p>Welcome to your Dashboard</p>
-          </div>
-        );
+     alert("token is invalid")
+          } else {
+       navigateToAuthSite()
       }
   
   } catch (e) {
     console.log(e);
   }
 }
-
-  const signup = async () => {
-    const { data, error } = await supabase.auth.signUp({ email, password });
-  };
   const login = async () => {
     const { data, error } = await supabase.auth.signInWithPassword({ email, password });
     console.log("access token",data.session.access_token)
@@ -44,6 +40,7 @@ const SignIn = () => {
     if(data.session.access_token){
       loginUser(data.session.access_token)
     }
+
   };
   async function signInWithGoogle() {
     const { data, error } = await supabase.auth.signInWithOAuth({
@@ -155,15 +152,7 @@ const SignIn = () => {
               placeholder="password"
             ></input>
           </div>
-          {/* <div className="mt-5">
-            <button
-              className="continue-button"
-              disabled={loading}
-              onClick={signup}
-            >
-              <span>{loading ? "Loading" : "Continue with Email"}</span>
-            </button>
-          </div> */}
+        
           <div className="mt-5">
             <button
               className="continue-button"
@@ -177,7 +166,7 @@ const SignIn = () => {
             Forgot password ?<Link to="/resetpasslink">Reset now</Link>
           </div>
           <div className="forgot">
-            You dont have an account ?<Link to="/signup">Sign Up</Link>
+            You dont have an account ?<Link  to="/signup">Sign Up</Link>
           </div>
         </div>
       </div>

@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { supabase } from "../utils/supabaseClient";
 
 export default function SignUp() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const signup = async () => {
+    const { data, error } = await supabase.auth.signUp({ email, password });
+  };
   return (
     <div>
       <div className="header">
@@ -12,20 +19,18 @@ export default function SignUp() {
       </div>
       <div className="signup-wrapper">
         <div className="sign-up">Sign Up</div>
-        <div className="user-label">USERNAME</div>
 
-        <div>
-          <input type="text" className="username" />
-        </div>
         <div className="pass-label">PASSWORD</div>
 
         <div>
-          <input type="text" className="username" />
+          <input value={password}
+              onChange={(e) => setPassword(e.target.value)} type="text" className="username" placeholder="password" />
         </div>
         <div className="pass-label">EMAIL</div>
 
         <div>
-          <input type="text" className="username" placeholder="Email" />
+          <input  value={email}
+              onChange={(e) => setEmail(e.target.value)} type="text" className="username" placeholder="Email" />
         </div>
         <div className="check-wrapper">
           <div>
@@ -33,7 +38,9 @@ export default function SignUp() {
           </div>
           <div>I agree to the terms and conditions</div>
         </div>
-        <div className="create-account">Create Account</div>
+        <div  >
+          <button className="create-account" onClick={signup}>Create Account</button>
+          </div>
         <div style={{ marginTop: "20px" }}>Or</div>
         <div style={{ marginTop: "15px" }} className="sign-in-with">
           <Link to="/">Sign in with your account</Link>
