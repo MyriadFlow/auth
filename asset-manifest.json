@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "https://myriadflow.github.io/auth/static/css/main.d4b879f2.css",
-    "main.js": "https://myriadflow.github.io/auth/static/js/main.ec995253.js",
+    "main.css": "https://myriadflow.github.io/auth/static/css/main.035caed2.css",
+    "main.js": "https://myriadflow.github.io/auth/static/js/main.1b88f31f.js",
     "static/js/787.c205a220.chunk.js": "https://myriadflow.github.io/auth/static/js/787.c205a220.chunk.js",
     "index.html": "https://myriadflow.github.io/auth/index.html",
-    "main.d4b879f2.css.map": "https://myriadflow.github.io/auth/static/css/main.d4b879f2.css.map",
-    "main.ec995253.js.map": "https://myriadflow.github.io/auth/static/js/main.ec995253.js.map",
+    "main.035caed2.css.map": "https://myriadflow.github.io/auth/static/css/main.035caed2.css.map",
+    "main.1b88f31f.js.map": "https://myriadflow.github.io/auth/static/js/main.1b88f31f.js.map",
     "787.c205a220.chunk.js.map": "https://myriadflow.github.io/auth/static/js/787.c205a220.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d4b879f2.css",
-    "static/js/main.ec995253.js"
+    "static/css/main.035caed2.css",
+    "static/js/main.1b88f31f.js"
   ]
 }
