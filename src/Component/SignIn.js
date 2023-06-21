@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { supabase } from "../utils/supabaseClient";
 import { Link, Router, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Toast } from "@chakra-ui/react";
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const SignIn = () => {
   const navigate = useNavigate();
@@ -9,10 +10,6 @@ const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  function navigateToAuthSite(){
-    window.location.href = 'https://launchpad.myriadflow.com/launchpad'
-}
   async function loginUser(supabaseToken) {
     const   headers= {
       Accept: "application/json, text/plain, */*",
@@ -22,13 +19,28 @@ const SignIn = () => {
   let tokenData;
   try {
     tokenData = await axios.post(`${BASE_URL}/api/v1.0/auth/web2`,headers,  { token:supabaseToken,provider:"supabase",type:"web2"})
-    console.log("tokendata",tokenData)
-    if (!tokenData.config.token) {
-     alert("token is invalid")
-          } else {
-       navigateToAuthSite()
-      }
-  
+    if(tokenData.status > 200 && tokenData.data !== ''){
+
+      Toast({
+        title: 'Error fetching user paseto token',
+        description: "Read console for more information",
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+      })
+      
+    }else{
+      Toast({
+        title: 'Login successfully',
+        description: "You have successfully logged into account.",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
+      const paseto = tokenData.config.token
+      localStorage.setItem('PLATFORM_PASETO',paseto)
+      navigate('/redirect')
+    }
   } catch (e) {
     console.log(e);
   }

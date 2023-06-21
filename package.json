@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://MyriadFlow.github.io/auth",
   "dependencies": {
+    "@chakra-ui/react": "^2.7.1",
     "@supabase/auth-ui-react": "^0.4.2",
     "@supabase/auth-ui-shared": "^0.1.6",
     "@supabase/supabase-js": "^2.23.0",
