@@ -16,7 +16,7 @@ export default function Redirect(){
               })
 
         } else{
-            window.location.href = `http://launchpad.myriadflow.com/launchpad?paseto=${pasetoFromStorage}`
+            window.location.href = `https://launchpad.myriadflow.com/launchpad?paseto=${pasetoFromStorage}`
         }
     })
     return(
