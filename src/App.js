@@ -5,12 +5,14 @@ import ResetPasswordform from "./Component/ResetPasswordform";
 import SignIn from "./Component/SignIn";
 import SignUp from "./Component/SignUp";
 import Redirect from "./Component/Redirect";
+import IntermediatePage from "./Component/IntermediatePage";
 
 function App() {
   return (
     <Routes>
       <Route exact path="/" element={<SignIn />} />
       <Route path='/redirect' element={<Redirect/>}/>
+      <Route path='/intermediate-page' element={<IntermediatePage/>}/>
       <Route exact path="/resetpasslink" element={<ResetPasswordLink />} />
       <Route exact path="/resetpassform" element={<ResetPasswordform />} />
       <Route exact path="/signup" element={<SignUp />} />

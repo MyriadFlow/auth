@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { supabase } from "../utils/supabaseClient";
 import { Link, Router, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -18,7 +18,7 @@ const SignIn = () => {
     }
   let tokenData;
   try {
-    tokenData = await axios.post(`${BASE_URL}/api/v1.0/auth/web2`,headers,  { token:supabaseToken,provider:"supabase",type:"web2"})
+    tokenData = await axios.post(`${BASE_URL}/api/v1.0/auth/web2`,headers,  { token: supabaseToken, provider:"supabase",type:"web2"})
     if(tokenData.status > 200 && tokenData.data !== ''){
 
       Toast({
@@ -39,7 +39,7 @@ const SignIn = () => {
       })
       const paseto = tokenData.config.token
       localStorage.setItem('PLATFORM_PASETO',paseto)
-      navigate('/redirect')
+      navigate('/intermediate-page')
     }
   } catch (e) {
     console.log(e);
@@ -54,6 +54,9 @@ const SignIn = () => {
     }
 
   };
+  const logout=()=>{
+    localStorage.removeItem('PLATFORM_PASETO')
+  }
   async function signInWithGoogle() {
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: "google",
@@ -74,6 +77,13 @@ const SignIn = () => {
   async function signout() {
     const { error } = await supabase.auth.signOut();
   }
+  
+useEffect(() => {
+  if(localStorage.getItem('PLATFORM_PASETO')){
+    navigate('/intermediate-page')
+  }
+}, [])
+
 
   return (
     <div>
